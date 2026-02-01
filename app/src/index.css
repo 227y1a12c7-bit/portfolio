@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Freedom & Creativity Theme Colors */
+    --bg-primary: #F8F9FA;
+    --bg-secondary: #FFFFFF;
+    --text-primary: #1A1A2E;
+    --text-secondary: #4A5568;
+    --accent-sky: #4A90E2;
+    --accent-orange: #E59462;
+    --accent-sage: #68786D;
+    --border-light: #E2E8F0;
+    
+    /* Animation Easings */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-expo: cubic-bezier(0.7, 0, 0.84, 0);
+    --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-dramatic: cubic-bezier(0.87, 0, 0.13, 1);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* Shadcn Variables */
+    --background: 210 20% 98%;
+    --foreground: 240 30% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 30% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 30% 12%;
+    --primary: 214 70% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 25 70% 64%;
+    --secondary-foreground: 240 30% 12%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 20% 40%;
+    --accent: 150 10% 44%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 214 70% 58%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--accent-sky) 0%, var(--accent-orange) 100%);
+  }
+  
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, var(--accent-sky) 0%, var(--accent-orange) 100%);
+  }
+  
+  .glass {
+    @apply backdrop-blur-xl bg-white/80;
+  }
+  
+  .glass-dark {
+    @apply backdrop-blur-xl bg-black/20;
+  }
+}
+
+@layer utilities {
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-sage);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-sky);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-sky);
+  color: white;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
